@@ -1,0 +1,8 @@
+{
+  "name": "Clearstead Compliance",
+  "description": "Clear guidance for FCA authorisation and ongoing compliance support for UK financial services businesses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

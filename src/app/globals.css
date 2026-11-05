@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-serif: var(--font-lora), Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+@theme {
+  --color-navy: #14283F;
+  --color-warm-white: #FAF9F6;
+  --color-muted-teal: #24766C;
+  --color-vibrant-amber: #EAB308;
+  --color-body-text: #263544;
+  --color-soft-borders: #E2E7E8;
+}
+
+@layer base {
+  body {
+    @apply bg-warm-white text-body-text font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-vibrant-amber ring-offset-2 ring-offset-warm-white;
+  }
+}
