@@ -18,7 +18,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!service) return {};
   return {
     title: service.title,
-    description: service.shortDesc,
+    // shortDesc alone is 54-70 chars; pad to the 120-160 range search engines show in full.
+    description: `${service.shortDesc} ${BRAND.name} offers clear guidance and practical support for UK financial services firms.`,
   };
 }
 
@@ -58,9 +59,9 @@ export default async function ServiceDetail({ params }: PageProps) {
             </p>
             
             <div className="bg-[#FAF9F6] p-8 border-l-4 border-vibrant-amber rounded-sm mb-12">
-              <h3 className="text-sm font-bold text-[#14283F] uppercase tracking-wider mb-4 flex items-center">
+              <h2 className="text-sm font-bold text-[#14283F] uppercase tracking-wider mb-4 flex items-center">
                 <Info className="w-4 h-4 mr-2 text-vibrant-amber" /> Who this service is for
-              </h3>
+              </h2>
               <ul className="space-y-3">
                 {service.whoItIsFor.map((item, i) => (
                   <li key={i} className="text-sm text-[#263544]/70 flex items-start">
@@ -74,7 +75,7 @@ export default async function ServiceDetail({ params }: PageProps) {
 
           <div className="lg:col-span-1">
             <div className="sticky top-32 p-8 border border-[#E2E7E8] rounded-md bg-white shadow-sm">
-              <h3 className="text-lg font-serif font-medium text-[#14283F] mb-6">Discuss this service</h3>
+              <h2 className="text-lg font-serif font-medium text-[#14283F] mb-6">Discuss this service</h2>
               <p className="text-sm text-[#263544]/70 mb-8 leading-relaxed">
                 Tell us about your requirements and we will provide a scoped proposal.
               </p>
@@ -144,7 +145,7 @@ export default async function ServiceDetail({ params }: PageProps) {
                 <div key={i} className="flex gap-6 group">
                   <span className="text-xl font-serif italic text-vibrant-amber/30 group-hover:text-vibrant-amber transition-colors">0{i+1}</span>
                   <div>
-                    <h4 className="text-sm font-bold text-[#14283F]">{s.step}</h4>
+                    <h3 className="text-sm font-bold text-[#14283F]">{s.step}</h3>
                     <p className="text-xs text-[#263544]/60">{s.desc}</p>
                   </div>
                 </div>

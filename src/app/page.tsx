@@ -109,28 +109,28 @@ export default function HomePage() {
             className="relative"
           >
             <div className="bg-white p-8 md:p-12 rounded-lg border border-[#E2E7E8] shadow-sm relative z-10">
-              <h3 className="text-sm font-semibold text-[#14283F] uppercase tracking-widest mb-10 border-b border-[#E2E7E8] pb-4">
+              <h2 className="text-sm font-semibold text-[#14283F] uppercase tracking-widest mb-10 border-b border-[#E2E7E8] pb-4">
                 Engagement Plan
-              </h3>
+              </h2>
               <div className="space-y-12">
                 <div className="flex gap-6">
                   <div className="w-12 h-12 shrink-0 bg-[#FAF9F6] border border-[#E2E7E8] rounded-full flex items-center justify-center text-[#14283F] font-serif font-medium italic">1</div>
                   <div>
-                    <h4 className="font-semibold text-[#14283F] mb-2">Understand</h4>
+                    <h3 className="font-semibold text-[#14283F] mb-2">Understand</h3>
                     <p className="text-sm text-[#263544]/70">Initial gap analysis and requirement scoping.</p>
                   </div>
                 </div>
                 <div className="flex gap-6">
                   <div className="w-12 h-12 shrink-0 bg-[#FAF9F6] border border-[#E2E7E8] rounded-full flex items-center justify-center text-[#14283F] font-serif font-medium italic">2</div>
                   <div>
-                    <h4 className="font-semibold text-[#14283F] mb-2">Prepare</h4>
+                    <h3 className="font-semibold text-[#14283F] mb-2">Prepare</h3>
                     <p className="text-sm text-[#263544]/70">Documentation drafting and operational setup.</p>
                   </div>
                 </div>
                 <div className="flex gap-6">
                   <div className="w-12 h-12 shrink-0 bg-white border border-vibrant-amber/30 rounded-full flex items-center justify-center text-vibrant-amber font-serif font-medium italic shadow-sm shadow-vibrant-amber/10">3</div>
                   <div>
-                    <h4 className="font-semibold text-[#14283F] mb-2">Support</h4>
+                    <h3 className="font-semibold text-[#14283F] mb-2">Support</h3>
                     <p className="text-sm text-[#263544]/70">Ongoing monitoring and regulatory reporting.</p>
                   </div>
                 </div>
@@ -299,7 +299,7 @@ export default function HomePage() {
                 <div key={idx} className="flex gap-4">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#24766C] mt-2 shrink-0"></div>
                   <div>
-                    <h4 className="text-sm font-semibold text-[#14283F] mb-1">{item.title}</h4>
+                    <h3 className="text-sm font-semibold text-[#14283F] mb-1">{item.title}</h3>
                     <p className="text-xs text-[#263544]/70">{item.desc}</p>
                   </div>
                 </div>

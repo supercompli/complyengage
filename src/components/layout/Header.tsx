@@ -83,9 +83,9 @@ export default function Header() {
                   <div className="bg-white border border-[#E2E7E8] rounded-md shadow-lg p-6 w-[600px] grid grid-cols-3 gap-8">
                     {serviceGroups.map((group) => (
                       <div key={group.title}>
-                        <h4 className="text-[10px] uppercase tracking-wider text-[#24766C] font-semibold mb-3">
+                        <p className="text-[10px] uppercase tracking-wider text-[#24766C] font-semibold mb-3">
                           {group.title}
-                        </h4>
+                        </p>
                         <ul className="space-y-2">
                           {group.services.map((service) => (
                             <li key={service.id}>
@@ -130,11 +130,15 @@ export default function Header() {
         </div>
 
         {/* Mobile Toggle */}
-        <button 
+        <button
+          type="button"
           className="lg:hidden p-2"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
         >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {isOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
         </button>
       </div>
 
@@ -142,6 +146,7 @@ export default function Header() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: '100vh' }}
             exit={{ opacity: 0, height: 0 }}

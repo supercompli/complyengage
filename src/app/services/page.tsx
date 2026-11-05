@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: "Our Services",
-  description: "Clear guidance and practical support tailored to your firm’s specific activities, size and regulatory permissions.",
+  description: "FCA authorisation and compliance services with clear guidance and practical support tailored to your firm’s activities, size and regulatory permissions.",
 };
 
 export default function Services() {

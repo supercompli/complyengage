@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Suspense } from 'react';
 import ContactClient from './ContactClient';
 
 export const metadata: Metadata = {
@@ -9,11 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  // ContactClient reads ?service= via useSearchParams, which needs a Suspense boundary
-  // so the rest of the page can still be statically rendered.
-  return (
-    <Suspense>
-      <ContactClient />
-    </Suspense>
-  );
+  return <ContactClient />;
 }

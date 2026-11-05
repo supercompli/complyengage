@@ -18,7 +18,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-xs uppercase tracking-wider font-semibold mb-6 text-[#24766C]">Services</h4>
+            <h2 className="text-xs uppercase tracking-wider font-semibold mb-6 text-[#24766C]">Services</h2>
             <ul className="space-y-4">
               {SERVICES.slice(0, 5).map((service) => (
                 <li key={service.id}>
@@ -36,7 +36,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-xs uppercase tracking-wider font-semibold mb-6 text-[#24766C]">Company</h4>
+            <h2 className="text-xs uppercase tracking-wider font-semibold mb-6 text-[#24766C]">Company</h2>
             <ul className="space-y-4">
               <li>
                 <Link href="/sectors" className="text-sm text-white/60 hover:text-white transition-colors">
@@ -62,7 +62,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-xs uppercase tracking-wider font-semibold mb-6 text-[#24766C]">Enquiries</h4>
+            <h2 className="text-xs uppercase tracking-wider font-semibold mb-6 text-[#24766C]">Enquiries</h2>
             <p className="text-sm text-white/60 mb-4">
               Discuss your compliance requirements with our specialist team.
             </p>

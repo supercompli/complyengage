@@ -1,7 +1,6 @@
 'use client';
 
-import { useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import Section from '@/components/ui/Section';
 import Button from '@/components/ui/Button';
 import { SERVICES, BRAND, SECTOR_OPTIONS, STAGE_OPTIONS } from '@/config';
@@ -9,8 +8,9 @@ import { Check, ChevronRight, AlertCircle, Mail, Phone, Clock } from 'lucide-rea
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function ContactClient() {
-  const searchParams = useSearchParams();
-  const preselectedService = searchParams.get('service') || '';
+  // ?service= is read after mount rather than with useSearchParams(): that hook forces the whole
+  // page to client-side render at build time, which left the static HTML empty for crawlers.
+  const [preselectedService, setPreselectedService] = useState('');
 
   const [step, setStep] = useState(1);
   const emptyForm = {
@@ -26,6 +26,13 @@ export default function ContactClient() {
     website: '', // honeypot: hidden from real visitors, bots tend to fill it
   };
   const [formData, setFormData] = useState(emptyForm);
+
+  useEffect(() => {
+    const id = new URLSearchParams(window.location.search).get('service');
+    if (!id) return;
+    setPreselectedService(id);
+    setFormData(prev => (prev.serviceId ? prev : { ...prev, serviceId: id }));
+  }, []);
 
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -97,7 +104,7 @@ export default function ContactClient() {
                   <Clock className="w-5 h-5 text-vibrant-amber" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-[#14283F] mb-1">Fast initial response</h4>
+                  <h2 className="text-sm font-bold text-[#14283F] mb-1">Fast initial response</h2>
                   <p className="text-xs text-[#263544]/60">We typically respond to new enquiries within one business day to discuss next steps.</p>
                 </div>
               </div>
@@ -106,7 +113,7 @@ export default function ContactClient() {
                   <Mail className="w-5 h-5 text-vibrant-amber" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-[#14283F] mb-1">Direct communication</h4>
+                  <h2 className="text-sm font-bold text-[#14283F] mb-1">Direct communication</h2>
                   <p className="text-xs text-[#263544]/60">You will be put in touch with a specialist consultant who understands your sector.</p>
                 </div>
               </div>
@@ -115,7 +122,7 @@ export default function ContactClient() {
                   <Phone className="w-5 h-5 text-vibrant-amber" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-[#14283F] mb-1">Initial discussion</h4>
+                  <h2 className="text-sm font-bold text-[#14283F] mb-1">Initial discussion</h2>
                   <p className="text-xs text-[#263544]/60">We offer a no-obligation initial call to understand your requirements and define the scope.</p>
                 </div>
               </div>
@@ -132,7 +139,7 @@ export default function ContactClient() {
                 <div className="w-16 h-16 bg-[#24766C]/10 rounded-full flex items-center justify-center mx-auto mb-8">
                   <Check className="w-8 h-8 text-[#24766C]" />
                 </div>
-                <h3 className="text-2xl font-serif font-medium text-[#14283F] mb-4">Thank you, your enquiry has been sent</h3>
+                <h2 className="text-2xl font-serif font-medium text-[#14283F] mb-4">Thank you, your enquiry has been sent</h2>
                 <div className="bg-[#FAF9F6] border border-[#24766C]/20 p-6 rounded-md mb-8 text-left max-w-md mx-auto">
                    <p className="text-sm text-[#263544]/80 leading-relaxed">
                      We typically respond to new enquiries within one business day, by {formData.contactMethod === 'phone' ? 'phone' : 'email'} as you requested.
